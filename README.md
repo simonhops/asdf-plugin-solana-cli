@@ -1,8 +1,8 @@
 <div align="center">
 
-# asdf-solana-cli [![Build](https://github.com/simonhops/asdf-solana-cli/actions/workflows/build.yml/badge.svg)](https://github.com/simonhops/asdf-solana-cli/actions/workflows/build.yml) [![Lint](https://github.com/simonhops/asdf-solana-cli/actions/workflows/lint.yml/badge.svg)](https://github.com/simonhops/asdf-solana-cli/actions/workflows/lint.yml)
+# asdf-plugin-solana [![Build](https://github.com/simonhops/asdf-plugin-solana/actions/workflows/build.yml/badge.svg)](https://github.com/simonhops/asdf-plugin-solana/actions/workflows/build.yml) [![Lint](https://github.com/simonhops/asdf-plugin-solana/actions/workflows/lint.yml/badge.svg)](https://github.com/simonhops/asdf-plugin-solana/actions/workflows/lint.yml)
 
-[solana-cli](https://github.com/simonhops/solana-cli) plugin for the [asdf version manager](https://asdf-vm.com).
+[solana](https://docs.anza.xyz/cli/) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 
@@ -15,35 +15,31 @@
 
 # Dependencies
 
-**TODO: adapt this section**
-
 - `bash`, `curl`, `tar`, and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
+
 
 # Install
 
 Plugin:
 
 ```shell
-asdf plugin add solana-cli
-# or
-asdf plugin add solana-cli https://github.com/simonhops/asdf-solana-cli.git
+asdf plugin add solana https://github.com/simonhops/asdf-plugin-solana.git
 ```
 
-solana-cli:
+solana:
 
 ```shell
 # Show all installable versions
-asdf list-all solana-cli
+asdf list-all solana
 
 # Install specific version
-asdf install solana-cli latest
+asdf install solana latest
 
 # Set a version globally (on your ~/.tool-versions file)
-asdf global solana-cli latest
+asdf global solana latest
 
-# Now solana-cli commands are available
-solana-cli --help
+# Now solana commands are available
+solana --help
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
@@ -53,7 +49,7 @@ install & manage versions.
 
 Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
-[Thanks goes to these contributors](https://github.com/simonhops/asdf-solana-cli/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/simonhops/asdf-plugin-solana/graphs/contributors)!
 
 # License
 
