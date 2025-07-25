@@ -13,7 +13,6 @@ fail() {
 
 curl_opts=(-fsSL)
 
-# NOTE: You might want to remove this if solana is not hosted on GitHub releases.
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
 	curl_opts=("${curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
 fi
@@ -31,6 +30,26 @@ list_github_tags() {
 
 list_all_versions() {
 	list_github_tags
+}
+
+get_latest_version() {
+	local redirect_url
+
+	redirect_curl_opts=(-sI)
+
+	if [ -n "${GITHUB_API_TOKEN:-}" ]; then
+		redirect_curl_opts=("${redirect_curl_opts[@]}" -H "Authorization: token $GITHUB_API_TOKEN")
+	fi
+
+	redirect_url=$(curl "${redirect_curl_opts[@]}" "$GH_REPO/releases/latest" | sed -n -e "s|^location: *||p" | sed -n -e "s|\r||p")
+	version=
+	if [[ "$redirect_url" == "$GH_REPO/releases" ]]; then
+		version="$(list_all_versions | sort_versions | tail -n1 | xargs echo)"
+	else
+		version="$(printf "%s\n" "$redirect_url" | sed 's|.*/tag/v\{0,1\}||')"
+	fi
+
+	printf "%s\n" "$version"
 }
 
 download_release() {

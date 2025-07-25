@@ -30,20 +30,36 @@ solana:
 
 ```shell
 # Show all installable versions
-asdf list-all solana
+asdf list all solana
 
-# Install specific version
+# Install latest version
 asdf install solana latest
 
+# Install specific version
+asdf install solana $version
+
 # Set a version globally (on your ~/.tool-versions file)
-asdf global solana latest
+asdf set --home solana latest
+
+# Set a version locally (on your ~/.tool-versions file)
+asdf set solana latest
+
+# List all installed versions
+asdf list solana
+
+# Uninstall specific version
+asdf uninstall solana $version
 
 # Now solana commands are available
 solana --help
+
+# Remove plugin again
+asdf plugin remove solana
 ```
 
-Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
-install & manage versions.
+Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to install & manage versions.
+
+Or even better: Use [mise](https://mise.jdx.dev/getting-started.html)
 
 # Contributing
 
