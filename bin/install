@@ -9,4 +9,8 @@ plugin_dir=$(dirname "$(dirname "$current_script_path")")
 # shellcheck disable=SC1091
 source "${plugin_dir}/lib/utils.bash"
 
+if [ "$ASDF_INSTALL_VERSION" == "latest" ]; then
+	ASDF_INSTALL_VERSION=$(get_latest_version)
+fi
+
 install_version "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
