@@ -66,7 +66,7 @@ download_release() {
 	version="$1"
 	filename="$2"
 
-	url="$GH_REPO/releases/download/v${version}/solana-release-x86_64-unknown-linux-gnu.tar.bz2"
+	url="$GH_REPO/archive/refs/tags/v${version}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -82,6 +82,19 @@ install_version() {
 	fi
 
 	(
+		# Install Rust toolchain
+		curl https://sh.rustup.rs -sSf | sh -s -- -y
+		source "$HOME/.cargo/env"
+
+		# Add rustfmt and ensure toolchain up to date
+		rustup component add rustfmt
+		rustup update
+
+		cd "$ASDF_DOWNLOAD_PATH"
+
+		# Build all Solana CLI binaries
+		./scripts/cargo-install-all.sh .
+
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/bin/* "$install_path"
 

@@ -8,15 +8,25 @@
 
 # Contents
 
-- [Dependencies](#dependencies)
+- [System Dependencies](#system-dependencies)
 - [Install](#install)
 - [Contributing](#contributing)
 - [License](#license)
 
-# Dependencies
+# System Dependencies
 
 - `bash`, `curl`, `tar`, `jq`, `bzip2` and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
 
+```shell
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y \
+  bash curl tar bzip2 \
+  libssl-dev libudev-dev pkg-config zlib1g-dev \
+  llvm clang cmake make \
+  libprotobuf-dev protobuf-compiler libclang-dev \
+  build-essential
+```
 
 # Install
 
