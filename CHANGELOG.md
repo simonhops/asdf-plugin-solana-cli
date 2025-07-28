@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/simonhops/asdf-plugin-solana/compare/v1.0.0...v1.0.1) (2025-07-28)
+
+
+### Bug Fixes
+
+* **utils:** fix typo in script ([f0e5b8a](https://github.com/simonhops/asdf-plugin-solana/commit/f0e5b8af357cec3759101b5ad97bfab5706f4ef4))
+
 ## 1.0.0 (2025-07-28)
 
 
