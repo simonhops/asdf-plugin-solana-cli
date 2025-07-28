@@ -15,7 +15,7 @@
 
 # Dependencies
 
-- `bash`, `curl`, `tar`, `bzip2` and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
+- `bash`, `curl`, `tar`, `jq`, `bzip2` and [POSIX utilities](https://pubs.opengroup.org/onlinepubs/9699919799/idx/utilities.html).
 
 
 # Install
@@ -69,4 +69,4 @@ Contributions of any kind welcome! See the [contributing guide](contributing.md)
 
 # License
 
-See [LICENSE](LICENSE) © [Simon Hofmannn](https://github.com/simonhops/)
+See [LICENSE](LICENSE)

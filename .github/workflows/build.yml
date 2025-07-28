@@ -20,4 +20,4 @@ jobs:
         with:
           # override the default SHA ref to test the main branch
           gitref: main
-          command: solana --help
+          command: solana --version

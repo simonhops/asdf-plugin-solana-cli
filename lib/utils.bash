@@ -2,7 +2,10 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/anza-xyz/agave"
+GH_OWNER="anza-xy"
+GH_PROJECT="agave"
+GH_REPO="https://github.com/${GH_OWNER}/${GH_PROJECT}"
+
 TOOL_NAME="solana"
 TOOL_TEST="solana --help"
 
@@ -22,6 +25,11 @@ sort_versions() {
 		LC_ALL=C sort -t. -k 1,1 -k 2,2n -k 3,3n -k 4,4n -k 5,5n | awk '{print $2}'
 }
 
+list_github_releases() {
+	curl "${curl_opts[@]}" "https://api.github.com/repos/${GH_OWNER}/${GH_PROJECT}/releases" |
+		jq -r '.[].tag_name'
+}
+
 list_github_tags() {
 	git ls-remote --tags --refs "$GH_REPO" |
 		grep -o 'refs/tags/.*' | cut -d/ -f3- |
@@ -29,6 +37,7 @@ list_github_tags() {
 }
 
 list_all_versions() {
+	# list_github_releases | sed 's/^v//'
 	list_github_tags
 }
 
