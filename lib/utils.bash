@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-GH_OWNER="anza-xy"
+GH_OWNER="anza-xyz"
 GH_PROJECT="agave"
 GH_REPO="https://github.com/${GH_OWNER}/${GH_PROJECT}"
 
